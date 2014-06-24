@@ -20,24 +20,25 @@
 ################################################################################
 
 echo "getting sources..."
-  if [ ! -d media_build.git ]; then
-    git clone git://linuxtv.org/media_build.git media_build.git
+  if [ -d media_build_experimental ]; then
+    rm -rf media_build_experimental
   fi
 
-  cd media_build.git
-    git pull
-    GIT_REV=`git log -n1 --format=%h`
+  hg clone http://linuxtv.org/hg/~endriss/media_build_experimental
+
+  cd media_build_experimental
+    GIT_REV=`hg id -i`
   cd ..
 
 echo "copying sources..."
-  rm -rf media_build-$GIT_REV
-  cp -R media_build.git media_build-$GIT_REV
+  mv media_build_experimental media_build_experimental-$GIT_REV
 
 echo "cleaning sources..."
-  rm -rf media_build-$GIT_REV/.git
+  rm -rf media_build_experimental-$GIT_REV/.hgignore
 
 echo "packing sources..."
-  tar cvJf media_build-$GIT_REV.tar.xz media_build-$GIT_REV
+  #tar cvJf media_build_experimental-$GIT_REV.tar.xz media_build_experimental-$GIT_REV
+  tar cvJf media_build_experimental.tar.xz media_build_experimental-$GIT_REV
 
 echo "remove temporary sourcedir..."
-  rm -rf media_build-$GIT_REV
+  rm -rf media_build_experimental-$GIT_REV
