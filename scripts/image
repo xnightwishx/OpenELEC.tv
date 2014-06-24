@@ -395,5 +395,5 @@ IMAGE_NAME="$DISTRONAME-$TARGET_VERSION"
       tar cf $TARGET_IMG/${IMAGE_NAME}-$1.tar -C $TARGET ${IMAGE_NAME}-$1
 
     # cleanup release dir
-      rm -rf $RELEASE_DIR
+#      rm -rf $RELEASE_DIR
   fi
