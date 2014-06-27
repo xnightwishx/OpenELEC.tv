@@ -74,7 +74,7 @@ read -s -n 1 -p "going to make 1... Press any key to continue..."
 
   make  VER=$KERNEL_VER SRCDIR=$(kernel_path) -C linux/ download 
   make VER=$KERNEL_VER SRCDIR=$(kernel_path) -C linux/ untar 
-  make VER=$KERNEL_VER SRCDIR=$(kernel_path) allyesconfig
+  #make VER=$KERNEL_VER SRCDIR=$(kernel_path) allyesconfig
 read -s -n 1 -p "going to make... Press any key to continue..."
 
   make VER=$KERNEL_VER SRCDIR=$(kernel_path) >$HOME/make.txt
